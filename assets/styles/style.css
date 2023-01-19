@@ -1,0 +1,168 @@
+@font-face {
+    font-family: "Exo2.0";
+    src: url("../fonts/Exo2.0-Thin.otf");
+}
+
+@font-face {
+    font-family: "Trebuchet MS";
+    src: url("../fonts/trebuchetms.ttf");
+}
+:root {
+    --main-color : #1698D9;
+    --action-color : #D91667;
+    --hidden-color : #B3B3B3;
+}
+
+h1 {
+    display: block;
+    margin-top: 36px;
+    font-family: "Exo2.0", sans-serif;
+    font-size: 36px;
+    color: #FFFFFF;
+    /*text-shadow: 0px 1px 1px #000000;*/
+    text-align: center;
+}
+
+.main {
+    background-image: url("../images/Pattern.png");
+    width: 100%;
+    height: 100%;
+    padding-top: 36px;
+}
+
+.products-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 24px;
+}
+
+.product-card {
+    height: 500px;
+    width: 320px;
+    position: relative;
+    background-color: #FFFFFF;
+    border: 5px solid var(--main-color);
+    border-radius: 15px;
+    background-image: url("../images/Photo.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    clip-path: polygon(0 40.00px,40.00px 0,100% 0,100% 100%,0 100%);
+}
+
+.product-card::before {
+    content: '';
+    width: 101px;
+    height: 5px;
+    background-color: var(--main-color);
+    position: absolute;
+    transform: rotate(315deg);
+    left: -20px;
+}
+
+.card-weight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top: 406px;
+    left: 224px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.card-header {
+    margin-top: 20px;
+    font-family: "Exo2.0", sans-serif;
+    font-size: 16px;
+    color: #666666;
+}
+
+h2 {
+    text-align: center;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 48px;
+    color: #000000;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+h3 {
+    margin-left: 60px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 24px;
+    color: #000000;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-description {
+    margin-top: 15px;
+    margin-left: 60px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    color: #666666;
+    font-weight: 700;
+}
+.card-weight > span {
+    font-size: 42px;
+}
+
+.card-footer {
+    margin-top: 14px;
+    text-align: center;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 13px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.card-footer .buy {
+    color: var(--main-color);
+}
+
+data {
+    display: none;
+}
+
+.card-wrapper.selected .product-card {
+   border-color: var(--action-color);
+}
+
+.card-wrapper.selected .product-card::before  {
+    background-color: var(--action-color);
+}
+
+.card-wrapper.selected .card-weight {
+    background-color: var(--action-color);
+}
+
+.card-wrapper.hidden .product-card{
+    background-color: #F2F2F2;
+    background-image: url("../images/Photo.png");
+}
+.card-wrapper.hidden .product-card,.product-card::before  {
+    border-color: var(--hidden-color);
+}
+
+.card-wrapper.hidden .card-weight {
+    background-color: var(--hidden-color);
+}
+
+.card-wrapper.hidden .product-card::before  {
+    background-color: var(--hidden-color);
+}
+
+.card-wrapper.hidden .product-card h2,h3,.card-description,.card-header{
+    color: #B3B3B3;
+}
