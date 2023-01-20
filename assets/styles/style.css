@@ -23,30 +23,33 @@ h1 {
     text-align: center;
 }
 
-.main {
-    background-image: url("../images/Pattern.png");
-    width: 100%;
-    height: 100%;
+body {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 5e-05) 49.88%, rgba(0, 0, 0, 0.5) 100%), url("../images/Pattern.png");
     padding-top: 36px;
 }
 
 .products-wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 24px;
 }
 
 .product-card {
+    cursor: pointer;
     height: 500px;
     width: 320px;
     position: relative;
     background-color: #FFFFFF;
     border: 5px solid var(--main-color);
     border-radius: 15px;
-    background-image: url("../images/Photo.png");
-    background-repeat: no-repeat;
-    background-position: bottom left;
     clip-path: polygon(0 40.00px,40.00px 0,100% 0,100% 100%,0 100%);
+}
+
+.card-image {
+    position: absolute;
+    box-sizing: content-box;
+    bottom: 0px;
+    border-radius: 10px;
 }
 
 .product-card::before {
@@ -127,7 +130,8 @@ h3 {
     font-weight: 400;
 }
 
-.card-footer .buy {
+.buy {
+    cursor: pointer;
     color: var(--main-color);
 }
 
@@ -135,34 +139,54 @@ data {
     display: none;
 }
 
-.card-wrapper.selected .product-card {
+.card-wrapper {
+    margin: 20px;
+}
+
+.product-card.selected {
    border-color: var(--action-color);
 }
 
-.card-wrapper.selected .product-card::before  {
+.product-card.selected::before  {
     background-color: var(--action-color);
 }
 
-.card-wrapper.selected .card-weight {
+.product-card.selected .card-weight {
     background-color: var(--action-color);
 }
 
-.card-wrapper.hidden .product-card{
+.product-card.disabled{
     background-color: #F2F2F2;
-    background-image: url("../images/Photo.png");
 }
-.card-wrapper.hidden .product-card,.product-card::before  {
+
+.product-card.disabled .card-image {
+    opacity: 0.5;
+}
+
+.product-card.disabled,.product-card.hidden::before  {
     border-color: var(--hidden-color);
 }
 
-.card-wrapper.hidden .card-weight {
+.product-card.disabled .card-weight {
     background-color: var(--hidden-color);
 }
 
-.card-wrapper.hidden .product-card::before  {
+.product-card.disabled::before  {
     background-color: var(--hidden-color);
 }
 
-.card-wrapper.hidden .product-card h2,h3,.card-description,.card-header{
+.product-card.disabled h2,h3,.card-description,.card-header{
     color: #B3B3B3;
+}
+
+@media screen and (max-width: 1024px) {
+    .products-wrapper {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.hidden {
+    display: none;
 }
