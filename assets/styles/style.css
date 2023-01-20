@@ -19,7 +19,6 @@ h1 {
     font-family: "Exo2.0", sans-serif;
     font-size: 36px;
     color: #FFFFFF;
-    /*text-shadow: 0px 1px 1px #000000;*/
     text-align: center;
 }
 
@@ -188,5 +187,43 @@ data {
 }
 
 .hidden {
+    display: none;
+}
+
+.description-ended {
+    color: #FFFF66;
+}
+
+.block {
+    display: block;
+}
+
+.description-selected,
+.description-ended {
+    display: none;
+}
+
+.product-card.selected + .card-footer > .description-default {
+    display: none;
+}
+
+.product-card.selected + .card-footer > .description-selected {
+    display: block;
+}
+
+.product-card.selected + .card-footer > .description-ended {
+    display: none;
+}
+
+
+.product-card.disabled + .card-footer > .description-ended {
+    display: block;
+}
+
+.product-card.disabled + .card-footer > .description-selected {
+    display: none;
+}
+
+.product-card.disabled + .card-footer > .description-default {
     display: none;
 }

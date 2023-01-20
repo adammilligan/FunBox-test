@@ -1,24 +1,16 @@
-const cardWrapper = document.querySelectorAll('.product-card')
-for(let i = 0; i < cardWrapper.length; i += 1) {
-  cardWrapper[i].addEventListener('click', (e) => {
+const productCard = document.querySelectorAll('.product-card')
+
+for(let i = 0; i < productCard.length; i += 1) {
+  productCard[i].addEventListener('click', (e) => {
     if (e.currentTarget.classList.contains('disabled')) {
       return
     }
     if (e.currentTarget.classList.contains('selected')) {
       e.currentTarget.classList.remove('selected');
-      const description = e.currentTarget.closest('.card-wrapper').querySelector('.description')
-      const descriptionNone = e.currentTarget.closest('.card-wrapper').querySelector('.description.hidden')
-      console.log(descriptionNone)
-      descriptionNone.classList.remove('hidden');
-      description.classList.add('hidden')
     }
     else {
       e.currentTarget.classList.add('selected');
       const description = e.currentTarget.closest('.card-wrapper').querySelector('.description')
-      const descriptionNone = e.currentTarget.closest('.card-wrapper').querySelector('.description.hidden')
-      console.log(descriptionNone)
-      descriptionNone.classList.remove('hidden');
-      description.classList.add('hidden')
     }
   })
 }
